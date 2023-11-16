@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+</head>
+<body>
+</body>
+<script>
+
+let number = 4485603247076059;
+let numberEdited = number.toString().slice(0, -1);
+let lastDigit = parseInt(number.toString().slice(-1), 10);
+let sum1 = 0;
+let sum2 = 0;
+
+
+let newnum = numberEdited.split("").reverse();
+console.log(newnum);
+console.log(lastDigit);
+
+let index = 0;
+newnum.forEach(function(element){
+    element = parseInt(element, 10);
+    if (index % 2) sum1 += element;
+    else sum2 += Math.floor((element*2) / 10) + (element*2) % 10;
+    index ++;
+}); 
+
+if (10-(sum1 + sum2)%10 === lastDigit) console.log("Valid");
+else console.log("Invalid");
+
+</script>
+</html>
